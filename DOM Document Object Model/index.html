@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Tour</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        main>section>h1 {
+            color: red;
+        }
+
+        li {
+            color: tomato;
+        }
+
+        #fruits {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque, perferendis alias! Aperiam dignissimos
+            quaerat quidem laboriosam, iusto blanditiis. Illum, quam.</p>
+    </header>
+    <main>
+        <section>
+            <h1>Awesome js Dom: Document Object Model</h1>
+            <ul>
+                <li>3 Properties</li>
+                <ol>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ol>
+            </ul>
+        </section>
+        <section id="fruits">
+            <h1>Fruits I Like</h1>
+            <ul>
+                <li>3 Fruits</li>
+                <ol>
+                    <li>Apple</li>
+                    <li>Banana</li>
+                    <li>Carrot</li>
+                </ol>
+            </ul>
+        </section>
+        <section class="place-container">
+            <h1 id="places-title">Places I Like to visit</h1>
+            <ul>
+                <li class="important-places">Kuakata</li>
+                <li class="important-places">Cox Bazar</li>
+                <li class="important-places">Bhola</li>
+                <li class="important-places">Dhaka</li>
+
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <h3>All Copyright by Nrb</h3>
+    </footer>
+    <script src="js/dom.js"></script>
+</body>
+
+</html>
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMLCollection vs NodeList</title>
+</head>
+
+<body>
+    <div class="example">Div 1</div>
+    <div class="example">Div 2</div>
+    <div class="example">Div 3</div>
+
+    <script>
+        // Using getElementsByClassName returns an HTMLCollection (live)
+        const htmlCollection = document.getElementsByClassName('example');
+        console.log('HTMLCollection:', htmlCollection);
+
+        // Using querySelectorAll returns a NodeList (not live)
+        const nodeList = document.querySelectorAll('.example');
+        console.log('NodeList:', nodeList);
+
+        // Adding a new div after the initial query
+        const newDiv = document.createElement('div');
+        newDiv.textContent = 'New Div';
+        document.body.appendChild(newDiv);
+
+        // HTMLCollection is updated, NodeList is not
+        console.log('Updated HTMLCollection:', htmlCollection);
+        console.log('Unchanged NodeList:', nodeList);
+    </script>
+</body>
+
+</html> -->
+
+
+<!-- 
+In JavaScript, both HTMLCollection and NodeList are array-like objects that represent collections of HTML elements.
+However, there are some differences between them:
+
+HTMLCollection:
+
+An HTMLCollection represents a live collection of elements that match a specific query or criteria.
+It is typically returned by methods like getElementsByClassName(), getElementsByTagName(), and getElementsByName().
+An HTMLCollection is updated dynamically when changes occur in the DOM. For example, if you add or remove elements that
+match the criteria, the HTMLCollection will be updated automatically.
+NodeList:
+
+A NodeList also represents a collection of nodes (including elements, text nodes, etc.), but it's not necessarily live.
+It is typically returned by methods like querySelectorAll().
+Unlike HTMLCollection, a NodeList is not updated dynamically. Once created, it doesn't reflect subsequent changes to the
+DOM. -->
