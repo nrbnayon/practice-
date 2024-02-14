@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <title>JS DOM Event</title>
+</head>
+
+<body>
+    <header class="container mx-auto border-4 border-red-400">
+        <div class="navbar bg-base-100">
+            <div class="flex-1">
+                <a class="btn btn-ghost text-xl">daisyUI</a>
+            </div>
+            <div class="flex-none">
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                        <div class="indicator">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <span class="badge badge-sm indicator-item">8</span>
+                        </div>
+                    </div>
+                    <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                        <div class="card-body">
+                            <span class="font-bold text-lg">8 Items</span>
+                            <span class="text-info">Subtotal: $999</span>
+                            <div class="card-actions">
+                                <button onclick="bgRed()" class="btn btn-primary btn-block">BG Red</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                        <div class="w-10 rounded-full">
+                            <img alt="Tailwind CSS Navbar component"
+                                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        </div>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                            <a class="justify-between">
+                                Profile
+                                <span class="badge">New</span>
+                            </a>
+                        </li>
+                        <li><a>Settings</a></li>
+                        <li><a>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main id="event" class="container mx-auto">
+        <section>
+            <div class="card w-96 bg-base-100 shadow-xl">
+                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
+                </figure>
+                <div class="card-body">
+                    <h2 class="card-title">
+                        Shoes!
+                        <div class="badge badge-secondary">NEW</div>
+                    </h2>
+                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div class="card-actions justify-end">
+                        <button onclick="document.getElementById('event').style.backgroundColor='yellow'"
+                            class="btn btn-active btn-ghost">BG Yellow</button>
+                        <button onclick="console.log(100)" id="btn" class="btn btn-primary">Click Me</button>
+                        <button id="bg-blue" class="btn btn-primary">BG Blue</button>
+                        <button id="bg-pink" class="btn btn-primary">BG Pink</button>
+                        <button id="bg-green" class="btn btn-primary">BG Green</button>
+                        <button id="bg-goldenrod" class="btn btn-primary">BG Golden</button>
+                        <a href="js/event-summary.html">Go to Dom summary</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <hr>
+        <section>
+            <h3 class="text-3xl" onclick="console.log('Hello')">Virtual Keyboard</h3>
+            <div class="flex justify-center gap-1 my-1 w-full">
+                <kbd class="kbd">q</kbd>
+                <kbd class="kbd">w</kbd>
+                <kbd class="kbd">e</kbd>
+                <kbd class="kbd">r</kbd>
+                <kbd class="kbd">t</kbd>
+                <kbd class="kbd">y</kbd>
+                <kbd class="kbd">u</kbd>
+                <kbd class="kbd">i</kbd>
+                <kbd class="kbd">o</kbd>
+                <kbd class="kbd">p</kbd>
+            </div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+                <kbd class="kbd">a</kbd>
+                <kbd class="kbd">s</kbd>
+                <kbd class="kbd">d</kbd>
+                <kbd class="kbd">f</kbd>
+                <kbd class="kbd">g</kbd>
+                <kbd class="kbd">h</kbd>
+                <kbd class="kbd">j</kbd>
+                <kbd class="kbd">k</kbd>
+                <kbd class="kbd">l</kbd>
+            </div>
+            <div class="flex justify-center gap-1 my-1 w-full">
+                <kbd class="kbd">z</kbd>
+                <kbd class="kbd">x</kbd>
+                <kbd class="kbd">c</kbd>
+                <kbd class="kbd">v</kbd>
+                <kbd class="kbd">b</kbd>
+                <kbd class="kbd">n</kbd>
+                <kbd class="kbd">m</kbd>
+                <kbd class="kbd">/</kbd>
+            </div>
+        </section>
+        <section>
+            <h3 class="text-3xl">Here's an overview of commonly used DOM events:</h3>
+            <ol class="list-decimal p-5">
+                <li>
+                    Mouse Events:
+                    <ul class="list-disc list-inside">
+                        <li>click: Triggered when the user clicks the mouse button.</li>
+                        <li>mouseover: Triggered when the mouse pointer enters the element.</li>
+                        <li>mouseout: Triggered when the mouse pointer leaves the element.</li>
+                        <li>mousedown: Triggered when the mouse button is pressed down.</li>
+                        <li>mouseup: Triggered when the mouse button is released.</li>
+                    </ul>
+                </li>
+                <li>
+                    Keyboard Events:
+                    <ul class="list-disc list-inside">
+                        <li>keydown: Triggered when a key is pressed down.</li>
+                        <li>keyup: Triggered when a key is released.</li>
+                        <li>keypress: Triggered when a key is pressed and released.</li>
+                    </ul>
+                </li>
+                <li>
+                    Form Events:
+                    <ul class="list-disc list-inside">
+                        <li>submit: Triggered when a form is submitted.</li>
+                        <li>change: Triggered when the value of an input element changes.</li>
+                        <li>input: Triggered when the value of an input element is changed (including changes by the
+                            user, or
+                            programmatically).</li>
+                    </ul>
+                </li>
+                <li>
+                    Focus Events:
+                    <ul class="list-disc list-inside">
+                        <li>focus: Triggered when an element receives focus.</li>
+                        <li>blur: Triggered when an element loses focus.</li>
+                    </ul>
+                </li>
+                <li>
+                    Window Events:
+                    <ul class="list-disc list-inside">
+                        <li>load: Triggered when the window has finished loading.</li>
+                        <li>resize: Triggered when the window is resized.</li>
+                        <li>scroll: Triggered when the window is scrolled.</li>
+                    </ul>
+                </li>
+                <li>
+                    Touch Events:
+                    <ul class="list-disc list-inside">
+                        <li>touchstart: Triggered when a touch is initiated.</li>
+                        <li>touchmove: Triggered when a touch is moved.</li>
+                        <li>touchend: Triggered when a touch is ended.</li>
+                    </ul>
+                </li>
+            </ol>
+
+        </section>
+    </main>
+    <footer class="container mx-auto"></footer>
+    <script src="js/event.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js DOM Summary</title>
+</head>
+
+<body>
+    <h1>Final DOM Event Handlers</h1>
+    <p id="text-update">Input Text Show here after update</p>
+    <input type="text" id="input">
+    <button id="input-update">Update</button>
+    <br>
+    <br>
+    <h3 id="handle-status">Default Text</h3>
+    <button onclick="handleOnClick()">Handle event Add onclick function</button>
+    <button id="addEvent-listener">Handle Event by addEventListener</button>
+    <main>
+        <br><br><br>
+        <h1>Please add your comment</h1>
+        <div id="comment-box">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda perferendis quis veritatis sit.
+                Aliquid, sed! Vitae beatae placeat quia amet?</p>
+            <p>Ipsam unde mollitia voluptate aliquam eligendi odio iure quo, labore iusto amet est sequi quasi! Atque
+                consequatur earum ullam deleniti!</p>
+            <p>Adipisci corrupti, aut veritatis modi autem est corporis saepe? Harum quaerat saepe voluptates! Obcaecati
+                tempora accusantium perspiciatis expedita suscipit alias.</p>
+        </div>
+        <div>
+            <textarea name="" id="new-comment-text-area" cols="60" rows="8"></textarea>
+
+            <button id="comment-post">Post</button>
+        </div>
+    </main>
+    <script>
+        function handleOnClick() {
+            console.log("Button Click");
+            const handleTextChange = document.getElementById("handle-status")
+            handleTextChange.innerText = "Status change by DOM event function onclick attribute"
+        }
+        // option 2
+        document.getElementById("addEvent-listener").addEventListener("click", function () {
+            const handleTextChange = document.getElementById("handle-status")
+            handleTextChange.innerText = "Status updated by DOM addEventListener function onclick attribute"
+        })
+        //input field
+        document.getElementById("input-update").addEventListener("click", function () {
+            const handleInputTextSave = document.getElementById("input")
+            // console.log(handleInputTextSave.value);
+            const inputText = handleInputTextSave.value;
+            document.getElementById("text-update").innerText = inputText;
+            handleInputTextSave.value = "";
+
+        })
+        // comment box update comment
+
+        document.getElementById("comment-post").addEventListener("click", function () {
+            const handleCommentPost = document.getElementById("new-comment-text-area");
+            const getCommentText = handleCommentPost.value; //inside comment get
+            const commentContainer = document.getElementById('comment-box') //get div
+            const pTag = document.createElement("p"); //create a new paragraph tag into div
+            pTag.innerText = getCommentText; // post the value into ptag
+            commentContainer.appendChild(pTag); //add the ptag into div
+            handleCommentPost.value = ""; //clear the text area fields
+        })
+    </script>
+</body>
+
+</html>
