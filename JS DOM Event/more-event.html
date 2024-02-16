@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>More Event</title>
+</head>
+
+<body>
+    <h1>Explore more event in js</h1>
+    <ol>
+        <li>Type event 3 types</li>
+        <li>Event 1: keydown</li>
+        <li>Event 1: keyup</li>
+        <li>Event 1: keypress</li>
+    </ol>
+    <input type="text" id="text-field">
+    <button id="btn-event-more">Events</button>
+    <script>
+        // document.getElementById("text-field").addEventListener("focus", function () {
+        //     console.log("HaHa amare focus  koris kn");
+        // })
+        // document.getElementById("text-field").addEventListener("blur", function () {
+        //     console.log("HaHa amare focus  koris kn blur");
+        // })
+        // document.getElementById("text-field").addEventListener("keydown", function (event) {
+        //     console.log(event.target.value);
+        // })
+        // document.getElementById("text-field").addEventListener("keypress", function (event) {
+        //     console.log(event.target.value);
+        // })
+        document.getElementById("text-field").addEventListener("keyup", function (event) {
+            console.log(event.target.value);
+        })
+        document.getElementById("btn-event-more").addEventListener("mousemove", function () {
+            console.log("HaHa button a cap diche fule uthce");
+        });
+
+    </script>
+</body>
+
+</html>

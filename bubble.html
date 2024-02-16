@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble </title>
+    <style>
+        ul {
+            border: 2px solid tomato;
+        }
+
+        body {
+            border: 2px solid green;
+        }
+
+        section {
+            border: 2px solid black;
+        }
+
+        #item-2 {
+            border: 2px solid palegoldenrod;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <h1>Exploring Event Bubble </h1>
+    <section id="list-container">
+        <ul id="list-ul">
+            <li id="item-1">Lorem, ipsum.</li>
+            <li id="item-2">Totam, numquam!</li>
+            <li id="item-3">Assumenda, id.</li>
+            <li id="item-4">Accusantium, cum.</li>
+            <li id="item-5">Fuga, sit.</li>
+            <li id="item-6">Asperiores, dolorem!</li>
+        </ul>
+    </section>
+    <script>
+        document.getElementById("item-2").addEventListener("click", function (event) {
+            console.log("item2 click");
+            event.stopImmediatePropagation
+        })
+        document.getElementById("list-ul").addEventListener("click", function () {
+            console.log("Ul click");
+        })
+        document.getElementById("list-container").addEventListener("click", function () {
+            console.log("Section click");
+        })
+        document.getElementById("body").addEventListener("click", function () {
+            console.log("Body click");
+        })
+    </script>
+</body>
+
+</html>
